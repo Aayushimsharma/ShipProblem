@@ -1,0 +1,47 @@
+import java.util.Random;
+
+class Order {
+    private static final Random random = new Random();
+
+    private int cargoWeight;
+    private String destination;
+
+    public Order() {
+        this.cargoWeight = random.nextInt(41) + 10; // Random cargo weight between 10 and 50 tons
+        this.destination = random.nextBoolean() ? "Gotham" : "Atlanta"; // Random destination
+    }
+
+    public int getCargoWeight() {
+        return cargoWeight;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+}
+
+class Ship {
+    private int currCargo;
+
+    public Ship() {
+        this.currCargo = 0;
+    }
+
+    public void loadCargo(Order order) {
+        currCargo += order.getCargoWeight();
+    }
+
+    public void deliverCargo(int earnings) {
+        // Simulate delivering cargo and earning money
+        // You can add more logic here if needed
+    }
+
+    public void sendToMaintenance() {
+        // Simulate sending the ship to maintenance
+        // You can add more logic here if needed
+    }
+
+    public int getCurrentCargo() {
+        return currCargo;
+    }
+}
